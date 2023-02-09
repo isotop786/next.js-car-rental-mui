@@ -28,7 +28,9 @@ const ProductScreen = () => {
     <Layout title={product.name} description={product.description}> 
         <div className='my-3'>
             <NextLink href="/" passHref>
-                <Button variant='contained' color='warning'>Back to Products</Button>
+               <Link>
+               <Button variant='contained'>Back</Button>
+               </Link>
             </NextLink>
         </div>
 
@@ -56,7 +58,7 @@ const ProductScreen = () => {
                         <ListItem>
                             <Grid container>
                                 <Grid item xs={6}><Typography>Rent: </Typography></Grid>
-                                <Grid item xs={6}><Typography>${product.price}</Typography></Grid>
+                                <Grid item xs={6}><Typography>${product.price} /Day</Typography></Grid>
                             </Grid>
                         </ListItem>
                         <ListItem>
@@ -66,9 +68,13 @@ const ProductScreen = () => {
                             </Grid>
                         </ListItem>
                         <ListItem>
-                            <Button fullWidth variant='contained' color="primary">
-                                Make Rental
-                            </Button>
+                           <NextLink href={`/booking/${product.slug}`}>
+                                <Link>
+                                <Button fullWidth variant='contained' color="primary">
+                                    Make Booking
+                                </Button>
+                                </Link>
+                           </NextLink>
                         </ListItem>
                     </List>
                 </Card>
