@@ -8,9 +8,9 @@ import {userState,useEffect} from 'react'
 import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 
-
 const Booking = () => {
     const [days,setDays] = useState(1)
+    const [isClicked,setIsClicked] = useState(false)
     const [charge,setCharge] = useState(1)
     const router = useRouter();
     const {slug} = router.query;
@@ -26,6 +26,7 @@ const Booking = () => {
     const stripePromise = loadStripe(`pk_test_51MZbJHB1DfwD5KqSLFBNII43hECalq9QUoEPm5F2HCsarbhIPm2eEScOTOZERH8CTGOQNMTKQNBPuleIeA92pB4200QKhGwPU3`);
 
     const createCheckOutSession = async () => {
+        setIsClicked(true)
         const stripe = await stripePromise;
         const checkoutSession = await axios.post('/api/create-stripe-session', {
           item: {
@@ -171,9 +172,19 @@ const Booking = () => {
                 
             </Grid>
             <Grid item md={2}>
-               <Button variant='contained'
+            {!isClicked ? (
+                <Button variant='contained'
                 onClick={createCheckOutSession}
                >Checkout</Button>
+            ):(
+                <button class="btn btn-primary" type="button" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Processing...
+                </button>
+            )}
+               
+
+
             </Grid>
          </Grid>
     </Box>
