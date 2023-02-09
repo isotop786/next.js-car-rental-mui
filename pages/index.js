@@ -9,13 +9,35 @@ import NextLink from "next/link"
 import sytles from '../styles/Home.module.css'
 
 import Carousel from 'react-material-ui-carousel'
+import { useRouter } from 'next/dist/client/router'
+import { useEffect } from 'react'
 
 export default function Home() {
   const {products, productsPro} = data;
+  const router = useRouter();
+  const { status } = router.query;
+  useEffect(()=>{
+    if(status =='success'){
+      setTimeout(()=>{
+        router.push('/');
+      },1500)
+    }
+  },[])
   return (
     <Layout title="Home page">
      
+      {status && status === 'success' &&(
+          <Grid container className='my-4'>
+          <Grid item>
+            <Typography variant='h5' component='h5' className='text-success'>
+              Payment Success
+            </Typography>
+          </Grid>
+        </Grid>
+      )}
 
+      {status && status === 'success' && setTimeout(()=>{router.push('/')},2000)}
+    
       <Grid container className='my-4'>
         <Grid item>
           <Typography variant='h3' component='h3'>

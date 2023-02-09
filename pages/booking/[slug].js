@@ -32,7 +32,8 @@ const Booking = () => {
             name: product?.name,
             images: product?.image,
             price:product?.price,
-            quantity: 1
+            quantity: days
+            // quantity: 5
           },
         });
         const result = await stripe.redirectToCheckout({
@@ -143,7 +144,7 @@ const Booking = () => {
           variant="filled"
           min={1}
           defaultValue={days}
-          onClick={()=> chargeHandler}
+          onClick={(e)=> setDays(e.target.value)}
         />
 
 
@@ -160,7 +161,7 @@ const Booking = () => {
             </Grid>
             <Grid item md={2}>
                 <Typography variant='h6'>
-                    ${product?.price * days}
+                    ${parseInt(product?.price) * parseInt(days)}
                    
                 </Typography>
             </Grid>

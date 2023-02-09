@@ -9,7 +9,7 @@ const about = () => {
         <Container>
             <div container className='row col-md-12'>
                 <Typography variant='h3' component="h3">
-                    Rentify Car Rental
+                GariWala Car Rental
                 </Typography>
             </div>
             <div container className='row col-md-12 mt-4'>

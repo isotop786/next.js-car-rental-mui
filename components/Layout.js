@@ -10,14 +10,14 @@ const Layout = (props) => {
   return (
     <div>
         <Head>
-            <title>{props.title? `${props.title} - NextRental`: `NextRental`}</title>
+            <title>{props.title? `${props.title} - GariWala`: `GariWala`}</title>
             {props.description && <meta name='description' content={props.description}></meta>}
         </Head>
         <AppBar position='static' className={classess.navbar} >
             <Toolbar>
                 <NextLink href="/" passHref>
                     <Link>
-                        <Typography variant='h4' className={classess.brand }>Rentify</Typography>
+                        <Typography variant='h4' className={classess.brand }>GariWala</Typography>
                     </Link> 
                 </NextLink>
 
@@ -26,11 +26,6 @@ const Layout = (props) => {
                         <NextLink href="/about" passHref>
                             <Link>
                                 <Typography>About</Typography>
-                            </Link>
-                        </NextLink>
-                        <NextLink href="/contact" passHref>
-                            <Link>
-                                <Typography>Contact</Typography>
                             </Link>
                         </NextLink>
                     </div>
@@ -44,7 +39,7 @@ const Layout = (props) => {
 
         <footer className={classess.footerStyle}>
             <Typography>
-                All right reserve. Rentify &copy; {new Date().getFullYear()}
+                All right reserve. GariWala &copy; {new Date().getFullYear()}
             </Typography>
         </footer>
     </div>
