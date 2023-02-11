@@ -29,7 +29,7 @@ export default function Home() {
       {status && status === 'success' &&(
           <Grid container className='my-4'>
           <Grid item>
-            <Typography variant='h5' component='h5' className='text-success'>
+            <Typography variant='h3' component='h4' className='text-success'>
               Payment Success
             </Typography>
           </Grid>
@@ -38,9 +38,9 @@ export default function Home() {
 
       {status && status === 'success' && setTimeout(()=>{router.push('/')},2000)}
     
-      <Grid container className='my-4'>
+      <Grid container className='my-4 pb-3'>
         <Grid item>
-          <Typography variant='h3' component='h3'>
+          <Typography variant='h3' component='h1'>
             Available Vehicles
           </Typography>
         </Grid>
@@ -53,8 +53,8 @@ export default function Home() {
               
                   return(
                     <>
-                      <Card>
-                      <Typography variant='h4' component="h4">{item.name}</Typography>
+                      <Card >
+                      <Typography variant='h5' component="h2">{item.name}</Typography>
                       <div style={{display:"flex",justifyContent:"space-between",flexDirection:"row"}}>
                         <Grid item><img src={item.image} height={380}/></Grid>
                         <Grid item style={{padding:"1rem", background:"#ddd"}}> 
@@ -80,7 +80,7 @@ export default function Home() {
 
       
 
-      <Grid container spacing={3}>
+      <Grid container spacing={3} className="py-3">
       {products.map((product,i)=>(
         <Grid item key={i} md={4}>
           <Card>
