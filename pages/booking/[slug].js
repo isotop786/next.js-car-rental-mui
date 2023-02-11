@@ -59,7 +59,7 @@ const Booking = () => {
 
   return (
     <Layout title={product?.name+" booking"}>
-    {!confirm ? (
+ 
         <div className='row'>
         <div className='col-md-12'>
             <div className='my-3'>
@@ -186,19 +186,8 @@ const Booking = () => {
             
         </Grid>
         <Grid item md={2}>
-        {!isClicked ? (
-            <Button variant='contained'
-            onClick={()=>handleProcess()}
-            disabled={fname=='' && lname==''}
-           >Confirm</Button>
-        ):(
-            <button class="btn btn-primary" type="button" disabled>
-                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                Processing...
-            </button>
-        )}
-        </Grid>
-        {/* <Grid item md={2}>
+        </Grid> 
+        <Grid item md={2}>
         {!isClicked ? (
             <Button variant='contained'
             onClick={createCheckOutSession}
@@ -210,28 +199,13 @@ const Booking = () => {
                 Processing...
             </button>
         )}
-        </Grid> */}
+        </Grid>
      </Grid>
 </Box>
         </div>
     </div>
-    ):(
-        <Card className='p-3 text-center mt-4 pt-4'>
-            <Typography variant='h4' className='mb-4' >
-                Reservation Confirmed
-            </Typography>
-            <div>
-                <NextLink href="/" passHref>
-                    <Link>
-                        <Button variant='contained'>
-                            Back to Home
-                        </Button>
-                    </Link>
-                </NextLink>
-            </div>
-        </Card>
+  
         
-    )}
         
     </Layout>
   )

@@ -1,29 +1,25 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-
-
-// export const config = {
-//   runtime: 'edge',
-// }
-
+const stripe = require('stripe')('sk_test_51MZbJHB1DfwD5KqSR9xxD34GsISv6Bq0MWtOBpb7TcCo0bHWhlJmaltUIR10YBJwb0FlvJLN09PYiJ2aeT1foufB00hiDWqkBI');
 
 async function CreateStripeSession(req, res) {
   const { item } = req.body;
 
+  console.log(item)
+
   const redirectURL =
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:9009'
-      : 'https://next-js-car-rental-mui.pages.dev';
+      : 'https://next-js-car-rental-mui.vercel.app';
 
   const transformedItem = {
     price_data: {
       currency: 'usd',
       product_data: {
         // images: item.images,
-        name: item.name,
+        name: item.name || 'test Product',
       },
-      unit_amount: item.price * 100,
+      unit_amount: item.price * 100 || 100*199,
     },
-    quantity: item.quantity,
+    quantity: item.quantity || 1,
   };
 
   const session = await stripe.checkout.sessions.create({
