@@ -41,7 +41,12 @@
     "stripe": "^11.9.1"
   },
   "devDependencies": {
-    "eslint": "^8.33.0",
+    "eslint": "7.32.0",
     "eslint-config-next": "13.1.6"
+  },
+  "engines" : { 
+    "npm" : "8.0.0",
+    "node" : "16.0.0"
   }
+
 }
