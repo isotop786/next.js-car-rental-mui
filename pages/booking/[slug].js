@@ -34,7 +34,7 @@ const Booking = () => {
         const checkoutSession = await axios.post('/api/create-stripe-session', {
           item: {
             name: product?.name,
-            images: product?.image,
+            images: "https://next-js-car-rental-mui.vercel.app"+product?.image,
             price:product?.price,
             quantity: days
             // quantity: 5
