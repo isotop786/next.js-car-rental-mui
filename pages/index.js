@@ -24,7 +24,7 @@ export default function Home() {
     }
   },[])
   return (
-    <Layout title="Home page">
+    <Layout title="Home page" description="Rent your dream car with GariWala - the premier car rental agency. Choose from a wide range of reliable and affordable vehicles, with flexible rental options to suit your needs. Book now and enjoy a hassle-free ride with GariWala">
      
       {status && status === 'success' &&(
           <Grid container className='my-4'>
