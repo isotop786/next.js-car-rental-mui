@@ -1,5 +1,11 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
+
+// export const config = {
+//   runtime: 'edge',
+// }
+
+
 async function CreateStripeSession(req, res) {
   const { item } = req.body;
 
