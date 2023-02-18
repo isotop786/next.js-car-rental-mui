@@ -53,7 +53,8 @@ export default function Home() {
               
                   return(
                     <>
-                      <Card >
+                      <Card 
+                      >
                       <Typography variant='h5' component="h2">{item.name}</Typography>
                       <div style={{display:"flex",justifyContent:"space-between",flexDirection:"row"}}>
                         <Grid item><img src={item.image} height={380}/></Grid>
@@ -83,7 +84,15 @@ export default function Home() {
       <Grid container spacing={3} className="py-3">
       {products.map((product,i)=>(
         <Grid item key={i} md={4}>
-          <Card>
+          <Card 
+            sx={{
+              ':hover': {
+                 boxShadow: 20,
+                 cursor:'pointer'
+              }
+            }}
+          
+          >
           <NextLink href={`/products/${product.slug}`} passHref>
              <CardActionArea>
                 <CardMedia component="img"
